@@ -6,16 +6,16 @@ public class Menu {
 
         int option;
 
-        do {
-            System.out.println("Choose an operation related to Person/Student:");
-            System.out.println("[1] - Create");
-            System.out.println("[2] - Show");
-            System.out.println("[3] - Update");
-            System.out.println("[4] - Delete");
-            System.out.println("[5] - Exit");
+        System.out.println("Choose an operation related to Person/Student:");
+        System.out.println("[1] - Create");
+        System.out.println("[2] - Show");
+        System.out.println("[3] - Update");
+        System.out.println("[4] - Delete");
+        System.out.println("[5] - Exit");
 
+        do {
             option = entrada.nextInt();
-        } while (option == 5);
+        } while (option != 5);
 
         System.out.println("Bye!");
         entrada.close();

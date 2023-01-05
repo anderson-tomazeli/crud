@@ -1,21 +1,17 @@
-import javax.swing.text.Utilities;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
 
 public class Menu {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        //List<Person> people = new ArrayList<>();
         ArrayList<Person> lista = new ArrayList<>();
 
         int option;
 
         do {
-            System.out.println("Choose an operation related to Person/Student:");
+            System.out.println("\nChoose an operation:");
             System.out.println("[1] - Create");
             System.out.println("[2] - List");
             System.out.println("[3] - Update");
@@ -31,42 +27,40 @@ public class Menu {
                 System.out.println("Birth day [dd-mon-yyyy]: ");
                 String strBirthDay = entrada.next();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                //Date birthDay = formatter.parse(strBirthDay);;
                 Date birthDay = Calendar.getInstance().getTime();
                 try {
                     birthDay = formatter.parse(strBirthDay);
-                    //System.out.println(date);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-
-                //System.out.println("Creation date [dd-mon-yyyy]: ");
-                //String creationDate = entrada.next();
                 Date creationDate = Calendar.getInstance().getTime();
-                //System.out.println("Last update date [dd-mon-yyyy]: ");
-                //String lastUpdateDate = entrada.next();
                 Date lastUpdateDate = Calendar.getInstance().getTime();
                 System.out.println("Final course grade: ");
-                double finalCourseGrade = entrada.nextDouble();
+                String finalCourseGrade = entrada.next(); //entrada.nextLine();
                 Person person1 = new Person();
                 person1.createPerson(lista.size(), name, phoneNumber, birthDay, creationDate, lastUpdateDate, finalCourseGrade);
-                //person1.addPerson(person1);
                 lista.add(person1);
                 System.out.println("Person created successfully");
             } else if (option == 2) {
-                System.out.println("Listing...");
-                System.out.println("Id     | Name                 | Phone         | Birth Day   | Creation Date | Last update date | Final course grade");
-                for (Person p: lista){
-                    System.out.println(p);
+                if (lista.size() > 0) {
+                    System.out.println("Rec Num| Name                 | Phone         | Birth Day   | Creation Date | Last update date | Final course grade");
+                    //for (Person p : lista) {
+                    for (int index=0; index < lista.size(); index++){
+                        System.out.print(String.format("%-" + 7 + "s", index) + "| ");
+                        System.out.println(lista.get(index));
+                    }
+                } else {
+                    System.out.println("There are no records to be listed");
                 }
-                System.out.println();
             } else if (option == 4) {
-                System.out.println("Choose the Id you wish to delete: ");
-                int idDelete = entrada.nextInt();
-                lista.remove(idDelete);
-                System.out.println("Id " + idDelete + " deleted successfully");
-
-                //System.out.println();
+                if (lista.size() > 0) {
+                    System.out.print("Rec Num to be deleted: ");
+                    int idDelete = entrada.nextInt();
+                    lista.remove(idDelete);
+                    System.out.println("Record " + idDelete + " deleted successfully");
+                } else {
+                    System.out.println("There are no records to be deleted");
+                }
             }
         } while (option != 5);
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc122068-cb54-4440-850d-1d03fc16e0cb" name="Changes" comment="Create and List">
+    <list default="true" id="cc122068-cb54-4440-850d-1d03fc16e0cb" name="Changes" comment="Enhancements applied">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Person.java" afterDir="false" />
@@ -92,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667875340308</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Enhancements applied">
+      <created>1672890613917</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672890613918</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Enhancements applied">
+      <created>1672890774010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672890774010</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +125,7 @@
     <MESSAGE value="Second commit" />
     <MESSAGE value="List the menu options" />
     <MESSAGE value="Create and List" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create and List" />
+    <MESSAGE value="Enhancements applied" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhancements applied" />
   </component>
 </project>

@@ -1,12 +1,16 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import javax.swing.text.Utilities;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 
 public class Menu {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        List<Person> people = new ArrayList<>();
+        //List<Person> people = new ArrayList<>();
+        ArrayList<Person> lista = new ArrayList<>();
 
         int option;
 
@@ -25,24 +29,44 @@ public class Menu {
                 System.out.println("Phone Number: ");
                 String phoneNumber = entrada.next();
                 System.out.println("Birth day [dd-mon-yyyy]: ");
-                String birthDay = entrada.next();
-                System.out.println("Creation date [dd-mon-yyyy]: ");
-                String creationDate = entrada.next();
-                System.out.println("Last update date [dd-mon-yyyy]: ");
-                String lastUpdateDate = entrada.next();
+                String strBirthDay = entrada.next();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                //Date birthDay = formatter.parse(strBirthDay);;
+                Date birthDay = Calendar.getInstance().getTime();
+                try {
+                    birthDay = formatter.parse(strBirthDay);
+                    //System.out.println(date);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                //System.out.println("Creation date [dd-mon-yyyy]: ");
+                //String creationDate = entrada.next();
+                Date creationDate = Calendar.getInstance().getTime();
+                //System.out.println("Last update date [dd-mon-yyyy]: ");
+                //String lastUpdateDate = entrada.next();
+                Date lastUpdateDate = Calendar.getInstance().getTime();
                 System.out.println("Final course grade: ");
                 double finalCourseGrade = entrada.nextDouble();
                 Person person1 = new Person();
-                person1.createPerson(name, phoneNumber, birthDay, creationDate, lastUpdateDate, finalCourseGrade);
+                person1.createPerson(lista.size(), name, phoneNumber, birthDay, creationDate, lastUpdateDate, finalCourseGrade);
                 //person1.addPerson(person1);
-                people.add(person1);
+                lista.add(person1);
                 System.out.println("Person created successfully");
             } else if (option == 2) {
                 System.out.println("Listing...");
-                for (int a = 0; a < people.size(); a++) {
-                    System.out.println("name " + people.get(a).name);
+                System.out.println("Id     | Name                 | Phone         | Birth Day   | Creation Date | Last update date | Final course grade");
+                for (Person p: lista){
+                    System.out.println(p);
                 }
+                System.out.println();
+            } else if (option == 4) {
+                System.out.println("Choose the Id you wish to delete: ");
+                int idDelete = entrada.nextInt();
+                lista.remove(idDelete);
+                System.out.println("Id " + idDelete + " deleted successfully");
 
+                //System.out.println();
             }
         } while (option != 5);
 

@@ -10,6 +10,7 @@ public class Person {
     Date creationDate;
     Date lastUpdateDate;
     String finalCourseGrade;
+    String type;
 
     public String toString() {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -19,7 +20,8 @@ public class Person {
                 String.format("%-" + 12 + "s", dateFormat.format(this.birthDay)) + "| " +
                 String.format("%-" + 14 + "s", dateFormat.format(this.creationDate)) + "| " +
                 String.format("%-" + 17 + "s", dateFormat.format(this.lastUpdateDate)) + "| " +
-                this.finalCourseGrade;
+                String.format("%-" + 19 + "s", this.finalCourseGrade) + "| " +
+                this.type;
     }
 
     void createPerson(int id, String name, String phoneNumber, Date birthDay, Date creationDate, Date lastUpdateDate, String finalCourseGrade){
@@ -30,6 +32,11 @@ public class Person {
         this.creationDate = creationDate;
         this.lastUpdateDate = lastUpdateDate;
         this.finalCourseGrade = finalCourseGrade;
+        if (this.finalCourseGrade.isBlank()){
+            this.type = "Person";
+        } else {
+            this.type = "Student";
+        }
     }
 
 }

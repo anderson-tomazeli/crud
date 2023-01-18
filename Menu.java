@@ -11,7 +11,7 @@ public class Menu {
         int option;
 
         do {
-            System.out.println("\nChoose an operation:");
+            System.out.println("Choose an operation:");
             System.out.println("[1] - Create");
             System.out.println("[2] - List");
             System.out.println("[3] - Update");
@@ -19,13 +19,14 @@ public class Menu {
             System.out.println("[5] - Exit");
 
             option = entrada.nextInt();
+            entrada.nextLine();
             if (option == 1){
-                System.out.println("Name: ");
-                String name = entrada.next();
-                System.out.println("Phone Number: ");
-                String phoneNumber = entrada.next();
-                System.out.println("Birth day [dd-mon-yyyy]: ");
-                String strBirthDay = entrada.next();
+                System.out.print("Name: ");
+                String name = entrada.nextLine();
+                System.out.print("Phone Number: ");
+                String phoneNumber = entrada.nextLine();
+                System.out.print("Birth day [dd-mon-yyyy]: ");
+                String strBirthDay = entrada.nextLine();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 Date birthDay = Calendar.getInstance().getTime();
                 try {
@@ -35,15 +36,15 @@ public class Menu {
                 }
                 Date creationDate = Calendar.getInstance().getTime();
                 Date lastUpdateDate = Calendar.getInstance().getTime();
-                System.out.println("Final course grade: ");
-                String finalCourseGrade = entrada.next(); //entrada.nextLine();
+                System.out.print("Final course grade: ");
+                String finalCourseGrade = entrada.nextLine(); //entrada.nextLine();
                 Person person1 = new Person();
                 person1.createPerson(lista.size(), name, phoneNumber, birthDay, creationDate, lastUpdateDate, finalCourseGrade);
                 lista.add(person1);
-                System.out.println("Person created successfully");
+                System.out.println("\nPerson created successfully");
             } else if (option == 2) {
                 if (lista.size() > 0) {
-                    System.out.println("Rec Num| Name                 | Phone         | Birth Day   | Creation Date | Last update date | Final course grade");
+                    System.out.println("Rec Num| Name                 | Phone         | Birth Day   | Creation Date | Last update date | Final course grade | Type");
                     //for (Person p : lista) {
                     for (int index=0; index < lista.size(); index++){
                         System.out.print(String.format("%-" + 7 + "s", index) + "| ");
@@ -52,7 +53,28 @@ public class Menu {
                 } else {
                     System.out.println("There are no records to be listed");
                 }
-            } else if (option == 4) {
+            } else if (option == 3) {
+                if (lista.size() > 0){
+                    System.out.print("Rec Num to be updated: ");
+                    int index = entrada.nextInt();
+                    entrada.nextLine();
+                    System.out.print("Enter the new values for...\nName: ");
+                    String newName = entrada.nextLine();
+                    System.out.print("Phone: ");
+                    String newPhone = entrada.nextLine();
+                    System.out.print("Birth Day: ");
+                    String newBirthDay = entrada.nextLine();
+                    System.out.print("Creation Date: ");
+                    String newCreationDate = entrada.nextLine();
+                    System.out.print("Last Update Date: ");
+                    String newLastUpdateDate = entrada.nextLine();
+                    System.out.print("Final course grade: ");
+                    String newFinalCourseGrade = entrada.nextLine();
+                } else {
+                    System.out.println("There are no records to be updated");
+                }
+            }
+            else if (option == 4) {
                 if (lista.size() > 0) {
                     System.out.print("Rec Num to be deleted: ");
                     int idDelete = entrada.nextInt();
@@ -66,5 +88,13 @@ public class Menu {
 
         System.out.println("Bye!");
         entrada.close();
-    }
+
+        }
+
+    /*private static String checkNewValue(String fieldFrom, String fieldTo) {
+        if ((!newName.equals(lista.get(index).name)) && (!newName.isBlank())) {
+            lista.get(index).name = newName;
+        }
+    }*/
+
 }

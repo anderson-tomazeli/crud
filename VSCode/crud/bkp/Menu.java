@@ -19,7 +19,7 @@ public class Menu {
             option = inputData.nextInt();
             inputData.nextLine();
 
-            switch (option){ 
+            switch (option){
                 case 1:
                     p1 = new Person();
                     p1.AddPerson();

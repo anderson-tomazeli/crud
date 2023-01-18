@@ -159,7 +159,7 @@ public class Person {
         Menu.personList.set(index, tempPerson);
         System.out.println("Record updated successfully");
     }
- 
+
     // public void ValidateOption(int option){
     //     option--;
 
